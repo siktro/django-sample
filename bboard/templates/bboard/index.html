@@ -1,0 +1,14 @@
+{% extends 'bboard/layout/basic.html' %}
+
+{% block content %}
+{% for b in bbs %}
+    <div>
+        <h2>{{ b.title }}</h2>
+        <p>{{ b.content }}</p>
+        <p>
+            <a href="{% url 'by-rubric' b.rubric.pk %}">{{ b.rubric.name }}</a>
+        </p>
+        <p>{{ b.published|date:"d.m.Y H:i:s" }}</p>
+    </div>
+{% endfor %}
+{% endblock content %}
